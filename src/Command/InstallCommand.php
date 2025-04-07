@@ -1,6 +1,6 @@
 <?php
 
-namespace Shorunke\Cloudinary\Commands;
+namespace Shorunke\Cloudinary\Command;
 
 use Illuminate\Console\Command;
 

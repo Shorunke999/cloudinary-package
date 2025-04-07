@@ -4,7 +4,7 @@ namespace Shorunke\Cloudinary;
 
 use Shorunke\Cloudinary\CloudinaryService;
 use Illuminate\Support\ServiceProvider;
-use Shorunke\Cloudinary\Commands\InstallCommand;
+use Shorunke\Cloudinary\Command\InstallCommand;
 
 class CloudinaryServiceProvider extends ServiceProvider
 {
@@ -13,7 +13,11 @@ class CloudinaryServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        $this->mergeConfigFrom(__DIR__ . '/../config/cloudinary.php', 'cloudinary');
+        $this->mergeConfigFrom(
+            __DIR__.'/../config/cloudinary.php',
+            'cloudinary'
+        );
+
         $this->app->singleton(CloudinaryService::class, function ($app) {
             return new CloudinaryService();
         });
@@ -25,11 +29,10 @@ class CloudinaryServiceProvider extends ServiceProvider
     public function boot(): void
     {
         $this->publishes([
-            __DIR__ . '/../config/cloudinary.php'
-            => config_path('cloudinary.php')],'cloudinary-config'
-        );
+            __DIR__.'/../config/cloudinary.php' => config_path('cloudinary.php')
+        ], 'cloudinary-config');
         $this->publishes([
-            __DIR__ . '/../CloudinaryService.php'
+            __DIR__ . '/CloudinaryService.php'
             => app_path('Services/CloudinaryService.php')],'cloudinary-service'
         );
         if ($this->app->runningInConsole()) {
