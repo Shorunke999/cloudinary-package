@@ -1,0 +1,34 @@
+{
+    "name": "shorunke/cloudinary",
+    "description": "This Package Helps Easily integrate Cloudinary Api for Easy Use of Files storage",
+    "type": "library",
+    "require": {
+        "cloudinary/cloudinary_php": "^3.1",
+        "illuminate/support":"^12.7"
+    },
+    "require-dev": {
+        "cloudinary/cloudinary_php": "^3.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "Shorunke\\Cloudinary\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel":{
+            "providers":
+            [
+                "Shorunke\\Cloudinary\\CloudinaryServiceProvider"
+            ],
+            "aliases": {
+            "Cloudinary": "Shorunke\\Cloudinary\\Facades\\Cloudinary"
+        }
+        }
+    },
+    "authors": [
+        {
+            "name": "Shorunke999",
+            "email": "134306919+Shorunke999@users.noreply.github.com"
+        }
+    ]
+}
