@@ -40,5 +40,6 @@ class CloudinaryServiceProvider extends ServiceProvider
                 InstallCommand::class,
             ]);
         }
+        //end
     }
 }
